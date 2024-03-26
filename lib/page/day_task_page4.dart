@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:wrtnm/data/database.dart';
+import 'package:wrtnm/data/database4.dart';
 import 'package:wrtnm/util/dialog_box.dart';
 import 'package:wrtnm/util/toto_tile.dart';
 
-class DayTaskPage extends StatefulWidget {
+class DayTaskPage4 extends StatefulWidget {
   final String day;
 
-  DayTaskPage({required this.day});
+  DayTaskPage4({required this.day});
 
   @override
   _DayTaskPageState createState() => _DayTaskPageState();
 }
 
-class _DayTaskPageState extends State<DayTaskPage> {
+class _DayTaskPageState extends State<DayTaskPage4> {
   //reference the hive box
   final _myBox = Hive.box('myBox');
-  ToDoDataBase db = ToDoDataBase();
+  ToDoDataBase4 db4 = ToDoDataBase4();
 
   @override
   void initState() {
     //if the app open for the first time ever
-    if (_myBox.get("TODOLIST") == null) {
-      db.createInitialData();
+    if (_myBox.get("TODOLIST4") == null) {
+      db4.createInitialData();
     } else {
-      db.loadData();
+      db4.loadData();
     }
 
     super.initState();
@@ -37,12 +37,12 @@ class _DayTaskPageState extends State<DayTaskPage> {
   void saveNewTask() {
     setState(() {
       if (_controller.text != "") {
-        db.toDoList.add(_controller.text);
+        db4.toDoList4.add(_controller.text);
         _controller.clear();
       }
     });
     Navigator.of(context).pop();
-    db.updateDataBase();
+    db4.updateDataBase();
   }
 
   //create New Task
@@ -62,15 +62,15 @@ class _DayTaskPageState extends State<DayTaskPage> {
   //delete  a specific task from the list
   void deleteTask(int index) {
     setState(() {
-      db.toDoList.removeAt(index);
+      db4.toDoList4.removeAt(index);
     });
-    db.updateDataBase();
+    db4.updateDataBase();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[200],
+      backgroundColor: Colors.red[200],
       appBar: AppBar(
         title: Text('Tasks for ${widget.day}'),
         backgroundColor: Color.fromARGB(255, 245, 10, 159),
@@ -80,10 +80,10 @@ class _DayTaskPageState extends State<DayTaskPage> {
         child: Icon(Icons.add),
       ),
       body: ListView.builder(
-          itemCount: db.toDoList.length,
+          itemCount: db4.toDoList4.length,
           itemBuilder: (context, index) {
             return ToDoTile(
-              taskName: db.toDoList[index],
+              taskName: db4.toDoList4[index],
               deleteFunction: (context) => deleteTask(index),
             );
           }),
