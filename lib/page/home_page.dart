@@ -43,9 +43,9 @@ class HomePage extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(
-                10.0), // Add vertical space between each tile
+                5.0), // Add vertical space between each tile
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: tileColors[index % tileColors.length],
                 borderRadius: BorderRadius.circular(12),
@@ -125,6 +125,24 @@ class HomePage extends StatelessWidget {
             ),
           );
         },
+      ),
+      bottomNavigationBar: Container(
+        color: Colors.pink,
+        padding: EdgeInsets.all(9),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "Developed By : SaJiD\nRUET CSE'21\nMail : m.sajid1495@gmail.com",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
