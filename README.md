@@ -21,9 +21,10 @@ Welcome to Weekly Routine Manager, an Android app designed to help you manage yo
 
 
 ## Installation
-You can download the app directly from the [Github Releasea](https://github.com/sajid1495/Weekly-Routine-Manager/releases).
+You can download the app directly from the [Github Release](https://github.com/sajid1495/Weekly-Routine-Manager/releases).
 
 Alternatively, you can clone the repository and build the app using Android Studio:
 
 ```bash
 git clone https://github.com/sajid1495/Weekly-Routine-Manager.git
+
